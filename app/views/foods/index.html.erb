@@ -1,2 +1,24 @@
-<h1>Foods#index</h1>
-<p>Find me in app/views/foods/index.html.erb</p>
+<div class="container food-container">
+<%= link_to 'Add Food', new_food_path, class: "add-food-button" %>
+
+<table>
+  <thead>
+    <tr>
+      <th class="food-name">Name</th>
+      <th class="measurement-unit">Measurement Unit</th>
+      <th class="price">Price</th>
+      <th class="quantity">Quantity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @foods.each do |food| %>
+      <tr>
+        <td class="food-name"><%= food.name %></td>
+        <td class="measurement-unit"><%= food.measurement_unit %></td>
+        <td class="price"><%= food.price %></td>
+        <td class="quantity"><%= food.quantity %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

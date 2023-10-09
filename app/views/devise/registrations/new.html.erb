@@ -1,0 +1,37 @@
+<h2 class="index-title">Sign up</h2>
+<% if notice %>
+    <p class="notice"><%= notice%></p>
+  <% end %>
+  <% if alert %>
+    <p class="alert"><%= alert%></p>
+  <% end %>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'post-form' }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.text_field :name, placeholder: "Name", autocomplete: "name", class: 'input-with-label' %>
+  </div>
+
+  <div class="field">
+    <%= f.email_field :email, placeholder: "Email", autofocus: true, autocomplete: "email", class: 'input-with-label' %>
+  </div>
+
+  <div class="field">
+    <%= f.password_field :password, placeholder: "Password (#{@minimum_password_length} characters minimum)", autocomplete: "new-password", class: 'input-with-label' %>
+  </div>
+
+  <div class="field">
+    <%= f.password_field :password_confirmation, placeholder: "Confirm Password", autocomplete: "new-password", class: 'input-with-label' %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up", class: 'post-form-button' %>
+  </div>
+<% end %>
+
+<div class="top">
+  <%= link_to "Log in" , new_user_session_path %> |
+  <%= link_to "Sign up" , new_user_registration_path %> |
+  <%= link_to "Forgot your password?" , new_user_password_path %>
+</div>

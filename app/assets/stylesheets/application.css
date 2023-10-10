@@ -1,6 +1,7 @@
 @import "recipeIndex";
 @import "recipeShow";
 @import "publicRecipe";
+@import "shoppingList";
 
 * {
   box-sizing: border-box;

@@ -1,3 +1,6 @@
+@import "recipeIndex";
+@import "recipeShow";
+
 * {
   box-sizing: border-box;
   padding: 0;

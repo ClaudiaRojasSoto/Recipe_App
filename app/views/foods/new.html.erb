@@ -9,11 +9,11 @@
     <%= form.text_field :measurement_unit, placeholder: "Measurement Unit", autocomplete: "off", class: 'input-with-label' %>
   </div>
   <div class="field">
-    <%= form.number_field :price, placeholder: "Price", class: 'input-with-label' %>
-  </div>
-  <div class="field">
-    <%= form.number_field :quantity, placeholder: "Quantity", class: 'input-with-label' %>
-  </div>
+  <%= form.text_field :price, placeholder: "Price", class: 'input-with-label', step: 'any' %>
+</div>
+<div class="field">
+  <%= form.text_field :quantity, placeholder: "Quantity", class: 'input-with-label', step: 'any' %>
+</div>
   <div class="actions">
     <%= form.submit "Add Food", class: 'post-form-button' %>
   </div>

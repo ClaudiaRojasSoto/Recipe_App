@@ -1,8 +1,13 @@
 class RecipesController < ApplicationController
   before_action :authenticate_user!
-  def index; end
+  def index
+    @recipesData = Recipe.all
+    @userOwner = current_user.id
+  end
 
-  def show; end
+  def show
+    @recipeData = Recipe.find(params[:id])
+  end
 
   def new; end
 

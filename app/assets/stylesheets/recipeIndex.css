@@ -5,18 +5,18 @@
 }
 
 .contRecipes h1 {
-    font-size: 50px;
-    margin-bottom: 50px;
+  font-size: 50px;
+  margin-bottom: 50px;
 }
 
 .recipe {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    width: 100%;
-    border: 2px solid rgb(95, 93, 93);
-    margin: 5px;
-    padding: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  border: 2px solid rgb(95, 93, 93);
+  margin: 5px;
+  padding: 5px;
 }
 
 .recipe p {

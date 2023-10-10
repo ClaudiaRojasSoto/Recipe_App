@@ -1,15 +1,15 @@
 <div class="contRecipeDetails">
-    <h1>Recipe <%= @recipeData.id %> details</h1>
-    <h2><%= @recipeData.name %></h2>
+    <h1>Recipe <%= @recipe_data.id %> details</h1>
+    <h2><%= @recipe_data.name %></h2>
 
     <div class="contRecip1">
-        <p>Preparation time: <%= @recipeData.preparation_time %> hour</p>
+        <p>Preparation time: <%= @recipe_data.preparation_time %> hour</p>
         <button class="btnPublic">Edit</button>
     </div>
 
-    <p>Cooking time: <%= @recipeData.cooking_time %> hours</p>
+    <p>Cooking time: <%= @recipe_data.cooking_time %> hours</p>
     
-    <p><%= @recipeData.description %></p>
+    <p><%= @recipe_data.description %></p>
 
     <div class="contRecip2">
         <button class="btnGenerate">Generate shopping list</button>

@@ -1,49 +1,47 @@
 .contRecipeDetails {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
-  
-  .contRecipeDetails h1 {
-      font-size: 50px;
-  }
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
 
-  .contRecipeDetails h2 {
-    margin-bottom: 50px;
+.contRecipeDetails h1 {
+  font-size: 50px;
+}
+
+.contRecipeDetails h2 {
+  margin-bottom: 50px;
 }
 
 .contRecipeDetails p {
-    text-align: start;
-    font-size: 30px;
-    margin: 15px;
-  }
-  
-  .contRecip1 {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-  }
+  text-align: start;
+  font-size: 30px;
+  margin: 15px;
+}
 
-  .contRecip1 p {
-    font-size: 30px;
-    margin: 15px;
-  }
+.contRecip1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
 
-  .contRecip2 {
-    padding-bottom: 15px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    width: 100%;
-    border-bottom: 2px solid rgb(95, 93, 93);
-  }
+.contRecip1 p {
+  font-size: 30px;
+  margin: 15px;
+}
 
-  .contRecip2 button {
-    all: unset;
-    cursor: pointer;
-    padding: 10px;
-    border: 2px solid rgb(95, 93, 93);
-  }
+.contRecip2 {
+  padding-bottom: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  border-bottom: 2px solid rgb(95, 93, 93);
+}
 
-  
+.contRecip2 button {
+  all: unset;
+  cursor: pointer;
+  padding: 10px;
+  border: 2px solid rgb(95, 93, 93);
+}

@@ -4,10 +4,15 @@
 <table>
   <thead>
     <tr>
-      <th class="food-name">Name</th>
+      <th class="food-name">
+  Name
+  <%= link_to '', foods_path(sort: 'name'), class: 'triangle-up' %>
+</th>
+
       <th class="measurement-unit">Measurement Unit</th>
       <th class="price">Price</th>
       <th class="quantity">Quantity</th>
+      <th class="actions">Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -15,8 +20,12 @@
       <tr>
         <td class="food-name"><%= food.name %></td>
         <td class="measurement-unit"><%= food.measurement_unit %></td>
-        <td class="price"><%= food.price %></td>
+        <td class="price">$<%= food.price %></td>
+
         <td class="quantity"><%= food.quantity %></td>
+        <td class="actions">
+            <%= button_to 'Delete', food, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button-link' %>
+          </td>
       </tr>
     <% end %>
   </tbody>

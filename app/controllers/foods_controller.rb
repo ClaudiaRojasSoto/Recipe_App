@@ -4,7 +4,11 @@ class FoodsController < ApplicationController
   before_action :set_food, only: %i[show edit update destroy]
 
   def index
-    @foods = current_user.foods
+    @foods = if params[:sort] == 'name'
+               current_user.foods.order('LOWER(name)')
+             else
+               current_user.foods
+             end
   end
 
   def new
@@ -18,6 +22,16 @@ class FoodsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    @food = Food.find(params[:id])
+    if @food.destroy
+      flash[:notice] = 'Food was successfully deleted.'
+    else
+      flash[:alert] = 'Failed to delete food!'
+    end
+    redirect_to foods_path
   end
 
   private

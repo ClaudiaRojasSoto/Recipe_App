@@ -1,0 +1,26 @@
+<h1>Shopping List</h1>
+<p>Amount of food items to buy: <%= total_foods_by_recipe(current_user) %></p>
+<!--<p>Total value of food needed: <%= @total_food_value %></p>-->
+<%= @stock_user %></p>
+<%= @foods_needed %></p>
+<table>
+  <thead>
+    <tr>
+      <th class="food-name">Food</th>
+      <th class="quantity">Quantity Missing</th>  
+      <th class="price">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @foods_needed.each do |food_name, quantity_needed| %>
+      <tr>
+        <td class="food-name"><%= food_name %></td>
+        <td class="quantity"><% quantity_missing = [0, quantity_needed - (@stock_user[food_name] || 0)].max %><%= quantity_missing %></td>
+        <td class="price">
+          <% food_price = obtener_precio(food_name) %>
+          <%= quantity_missing * food_price %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

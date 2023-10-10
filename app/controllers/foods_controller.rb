@@ -4,11 +4,11 @@ class FoodsController < ApplicationController
   before_action :set_food, only: %i[show edit update destroy]
 
   def index
-    if params[:sort] == 'name'
-      @foods = current_user.foods.order('LOWER(name)')
-    else
-      @foods = current_user.foods
-    end
+    @foods = if params[:sort] == 'name'
+               current_user.foods.order('LOWER(name)')
+             else
+               current_user.foods
+             end
   end
 
   def new

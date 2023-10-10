@@ -5,9 +5,6 @@ class Recipe < ApplicationRecord
   scope :public_recipes, -> { where(public: true).order(created_at: :desc) }
 
   def total_foods_price
-    # iterar sobre foods
-    # Extraer de cada foods el recipe foods para extraer el quantity y multiplicarlo por el food price
-    # Luego sumar todo esos values
     prices = []
 
     foods.each do |food|

@@ -5,6 +5,10 @@ class RecipesController < ApplicationController
     @user_owner = current_user.id
   end
 
+  def public_recipes
+    @public_recipes_data = Recipe.public_recipes
+  end
+
   def show
     @recipe_data = Recipe.find(params[:id])
   end

@@ -5,6 +5,9 @@ Rails.application.routes.draw do
 
   root 'foods#index'
 
-  resources :recipes, only: [:index, :show, :new, :create ]
-
+  resources :recipes, only: [:index, :show, :new, :create] do
+    collection do
+      get 'public_recipes'
+    end
+  end
 end

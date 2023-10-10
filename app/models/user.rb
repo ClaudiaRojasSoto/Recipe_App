@@ -8,4 +8,16 @@ class User < ApplicationRecord
   has_many :recipes
 
   validates :name, presence: true
+
+  def foods_all_recipes
+    foods = []
+    recipes.each do |recipe|
+      # foods = recipe.foods.count
+      # food_count << foods
+      recipe.foods.each do |food|
+        foods << food
+      end
+    end
+    foods
+  end
 end

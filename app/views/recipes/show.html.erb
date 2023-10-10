@@ -1,2 +1,20 @@
-<h1>Recipes#show</h1>
-<p>Find me in app/views/recipes/show.html.erb</p>
+<div class="contRecipeDetails">
+    <h1>Recipe <%= @recipeData.id %> details</h1>
+    <h2><%= @recipeData.name %></h2>
+
+    <div class="contRecip1">
+        <p>Preparation time: <%= @recipeData.preparation_time %> hour</p>
+        <button class="btnPublic">Edit</button>
+    </div>
+
+    <p>Cooking time: <%= @recipeData.cooking_time %> hours</p>
+    
+    <p><%= @recipeData.description %></p>
+
+    <div class="contRecip2">
+        <button class="btnGenerate">Generate shopping list</button>
+        <button class="btnAdd">Add ingredient</button>
+    </div>
+
+   
+</div>

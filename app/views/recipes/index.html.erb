@@ -1,2 +1,21 @@
-<h1>Recipes#index</h1>
-<p>Find me in app/views/recipes/index.html.erb</p>
+<div class="contRecipes">
+    <h1>List of recipes</h1>
+
+    <% @recipesData.each do |item| %>
+        <div class="recipe">
+            <div class="title">
+            <p> <%= link_to item.name, recipe_path(item.id)%> </p>
+            <% if(@userOwner == item.user_id) %>
+                <%= link_to "REMOVE", recipes_path, class: "removeRecipe"%>
+            <% end %>
+            </div>
+            <p> <%= item.description %> </p>
+        </div>
+    <% end %>
+
+    <% if (@userOwner == 0) %>
+
+        #<%= link_to "Add new recipe", new_recipe_path %>
+
+    <% end %>
+</div>

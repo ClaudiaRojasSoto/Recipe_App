@@ -9,9 +9,9 @@ class Recipe < ApplicationRecord
 
     foods.each do |food|
       recipe_food = RecipeFood.find_by(recipe_id: id, food_id: food.id)
-      food_total = recipe_food.quantity * food.price
+      food_total = (recipe_food.quantity.to_i * food.price.to_i)
       prices.push(food_total)
     end
     prices.sum
-  end
+  end  
 end

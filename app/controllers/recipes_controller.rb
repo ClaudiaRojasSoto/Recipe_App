@@ -28,8 +28,25 @@ class RecipesController < ApplicationController
     @recipes = @user.recipes || []
     @stock_user = calculate_user_stock
     @foods_needed = calculate_foods_needed
+    @foods_needed = sort_foods_needed(@foods_needed)
     @foods_to_buy = calculate_foods_to_buy(@foods_needed, @stock_user)
     @total_price = calculate_total_price
+  end
+
+  def sort_foods_needed(foods_needed)
+    sort = params[:sort]
+    case sort
+    when 'food_name_asc'
+      foods_needed.sort.to_h
+    when 'food_name_desc'
+      foods_needed.sort.reverse.to_h
+    when 'price_asc'
+      foods_needed.sort_by { |food_name, _| Food.obtener_precio(food_name) }.to_h
+    when 'price_desc'
+      foods_needed.sort_by { |food_name, _| Food.obtener_precio(food_name) }.reverse.to_h
+    else
+      foods_needed
+    end
   end
 
   private

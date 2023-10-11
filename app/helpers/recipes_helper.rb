@@ -14,12 +14,4 @@ module RecipesHelper
 
     food_names.uniq.size
   end
-
-  def obtener_precio(food_name)
-    puts "Obteniendo precio para: #{food_name}"
-    food = Food.find_by(name: food_name)
-    price = food ? food.price : 0
-    puts "Precio obtenido: #{price}"
-    price
-  end
 end

@@ -1,3 +1,20 @@
+.info-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.info-item1 {
+  margin-right: 110px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.info-item2 {
+  margin-left: 110px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
 table {
   width: 80%;
   margin: 0 auto;

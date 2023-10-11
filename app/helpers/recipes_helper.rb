@@ -14,4 +14,10 @@ module RecipesHelper
 
     food_names.uniq.size
   end
+
+  def total_foods_to_buy(foods_to_buy)
+    return 0 if foods_to_buy.nil? # Verificación añadida para manejar nil
+
+    foods_to_buy.size
+  end
 end

@@ -18,43 +18,10 @@ class FoodsController < ApplicationController
     formatted_name = format_food_name(food_params[:name])
     existing_food = current_user.foods.find_by(name: formatted_name)
 
-    puts "Existing food: #{existing_food.inspect}"
-
     if existing_food
-      puts "is_deleted: #{existing_food.is_deleted}"
-
-      if existing_food.is_deleted == true
-        success = existing_food.update(
-          is_deleted: false,
-          quantity: food_params[:quantity].to_i,
-          price: food_params[:price].to_f
-        )
-        puts "Update when deleted was #{success ? 'successful' : 'unsuccessful'}"
-      else
-        # (para sumar la cantidad y actualizar el precio promedio)
-        new_quantity = existing_food.quantity + food_params[:quantity].to_i
-
-        # Calcula el precio promedio
-        total_cost_old = existing_food.price * existing_food.quantity
-        total_cost_new = food_params[:price].to_f * food_params[:quantity].to_i
-        total_cost = total_cost_old + total_cost_new
-        avg_price = total_cost / new_quantity
-
-        puts "new_quantity: #{new_quantity}"
-        puts "avg_price: #{avg_price}"
-
-        success = existing_food.update(quantity: new_quantity, price: avg_price)
-        puts "Update was #{success ? 'successful' : 'unsuccessful'}"
-      end
-
-      redirect_to foods_path, notice: 'Food quantity and price were successfully updated.'
+      update_existing_food(existing_food)
     else
-      @food = current_user.foods.build(food_params.merge(name: formatted_name))
-      if @food.save
-        redirect_to foods_path, notice: 'Food was successfully created.'
-      else
-        render :new
-      end
+      create_new_food(formatted_name)
     end
   end
 
@@ -80,6 +47,46 @@ class FoodsController < ApplicationController
 
   def format_food_name(name)
     formatted_name = name.strip.downcase.titleize.singularize
-    formatted_name.gsub(/\s+/, "")
+    formatted_name.gsub(/\s+/, '')
+  end
+
+  def update_existing_food(existing_food)
+    if existing_food.is_deleted
+      reactivate_and_update_food(existing_food)
+    else
+      update_food_quantity_and_price(existing_food)
+    end
+    redirect_to foods_path, notice: 'Food quantity and price were successfully updated.'
+  end
+
+  def reactivate_and_update_food(food)
+    food.update(
+      is_deleted: false,
+      quantity: food_params[:quantity].to_i,
+      price: food_params[:price].to_f
+    )
+  end
+
+  def update_food_quantity_and_price(food)
+    new_quantity, avg_price = calculate_new_quantity_and_price(food)
+    food.update(quantity: new_quantity, price: avg_price)
+  end
+
+  def calculate_new_quantity_and_price(food)
+    new_quantity = food.quantity + food_params[:quantity].to_i
+    total_cost_old = food.price * food.quantity
+    total_cost_new = food_params[:price].to_f * food_params[:quantity].to_i
+    total_cost = total_cost_old + total_cost_new
+    avg_price = total_cost / new_quantity
+    [new_quantity, avg_price]
+  end
+
+  def create_new_food(formatted_name)
+    @food = current_user.foods.build(food_params.merge(name: formatted_name))
+    if @food.save
+      redirect_to foods_path, notice: 'Food was successfully created.'
+    else
+      render :new
+    end
   end
 end

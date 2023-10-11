@@ -12,8 +12,6 @@ class User < ApplicationRecord
   def foods_all_recipes
     foods = []
     recipes.each do |recipe|
-      # foods = recipe.foods.count
-      # food_count << foods
       recipe.foods.each do |food|
         foods << food
       end

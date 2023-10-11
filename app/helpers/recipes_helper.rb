@@ -16,7 +16,7 @@ module RecipesHelper
   end
 
   def total_foods_to_buy(foods_to_buy)
-    return 0 if foods_to_buy.nil? # Verificación añadida para manejar nil
+    return 0 if foods_to_buy.nil?
 
     foods_to_buy.size
   end

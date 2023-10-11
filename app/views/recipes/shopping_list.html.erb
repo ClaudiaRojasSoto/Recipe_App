@@ -7,11 +7,27 @@
 <%# <%= @foods_needed %> 
 
 <table>
-  <thead>
+<thead>
     <tr>
-      <th class="food-name">Food</th>
-      <th class="quantity">Quantity Missing</th>  
-      <th class="price">Price</th>
+      <th class="food-name">
+        <div class="header-container">
+          <span>Food</span>
+          <div class="sorting-arrows">
+            <%= link_to '', { sort: 'food_name_asc' }, class: 'triangle-up2' %> <!-- Ascending Order -->
+            <%= link_to '', { sort: 'food_name_desc' }, class: 'triangle-down2' %> <!-- Descending Order -->
+          </div>
+        </div>
+      </th>
+      <th class="quantity">Quantity Missing</th>
+      <th class="price">
+        <div class="header-container">
+          <span>Price</span>
+          <div class="sorting-arrows">
+            <%= link_to '', { sort: 'price_asc' }, class: 'triangle-up2' %> <!-- Ascending Order -->
+            <%= link_to '', { sort: 'price_desc' }, class: 'triangle-down2' %> <!-- Descending Order -->
+          </div>
+        </div>
+      </th>
     </tr>
   </thead>
   <tbody>

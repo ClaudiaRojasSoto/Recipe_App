@@ -1,7 +1,11 @@
 .container {
   max-width: 1200px;
   margin: auto;
-  padding: 0 20px;
+  padding: 0;
+}
+
+.inner-padding {
+  padding: 0 30px;
 }
 
 .header-public-recipe-list {

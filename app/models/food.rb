@@ -3,6 +3,8 @@ class Food < ApplicationRecord
   has_many :recipe_foods
   has_many :recipes, through: :recipe_foods
 
+  scope :active, -> { where(is_deleted: false) }
+
   validates :name, presence: true
   validates :measurement_unit, presence: true
   validates :price, presence: true, numericality: { greater_than: 0 }

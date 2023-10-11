@@ -1,3 +1,4 @@
+@import "navbar";
 @import "foodsList";
 @import "recipeIndex";
 @import "recipeShow";
@@ -19,8 +20,8 @@ a {
 }
 
 .container {
-  width: 90%;
-  max-width: 1100px;
+  width: 100%;
+  max-width: 1200px;
   margin: auto;
 }
 

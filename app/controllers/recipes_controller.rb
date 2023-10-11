@@ -23,7 +23,7 @@ class RecipesController < ApplicationController
     # Mostrar el precio
     @user.foods_all_recipes
     @stock_user = {}
-    @user.foods_all_recipes.each do |food|
+    @user.foods.each do |food|
       if @stock_user.key?(food.name)
         @stock_user[food.name] += food.quantity.to_i
       else
@@ -35,13 +35,19 @@ class RecipesController < ApplicationController
       recipe.foods.each do |food|
         recipe_food = RecipeFood.find_by(recipe_id: recipe.id, food_id: food.id)
         next if recipe_food.quantity.blank?
-
+        puts "food-> #{food.name}, y quantity: #{recipe_food.quantity.to_i}"
         if @foods_needed.key?(food.name)
           @foods_needed[food.name] += recipe_food.quantity.to_i
         else
           @foods_needed[food.name] = recipe_food.quantity.to_i
         end
       end
+    end
+    @total_price = 0
+    @foods_needed.each do |k, v|
+      price = Food.obtener_precio(k)
+      quantity_missing = [0, v - (@stock_user[k] || 0)].max
+      @total_price += quantity_missing * price
     end
   end
 

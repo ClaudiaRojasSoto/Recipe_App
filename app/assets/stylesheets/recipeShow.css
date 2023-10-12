@@ -30,6 +30,13 @@
   margin: 15px;
 }
 
+.contToggleShow {
+  margin-right: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .contRecip2 {
   padding-bottom: 15px;
   display: flex;
@@ -44,4 +51,31 @@
   cursor: pointer;
   padding: 10px;
   border: 2px solid rgb(95, 93, 93);
+}
+
+.table {
+  margin: 25px;
+}
+
+.btnDetails {
+  all: initial;
+  padding: 10px;
+  border: 2px solid rgb(95, 93, 93);
+  cursor: pointer;
+}
+
+.actionsShow {
+  display: flex;
+}
+
+.actionsShow button {
+  all: initial;
+  border-bottom: 2px solid rgb(95, 93, 93);
+  cursor: pointer;
+}
+
+.actionsShow a {
+  all: initial;
+  border-bottom: 2px solid rgb(95, 93, 93);
+  cursor: pointer;
 }

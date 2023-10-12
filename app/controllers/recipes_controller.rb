@@ -10,18 +10,49 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @recipe_data = Recipe.find(params[:id])
+    @recipe_data = Recipe.includes(:recipe_foods).find(params[:id])
+    @foods = @recipe_data.recipe_foods
+    # includes(:recipe_foods).where(recipe_foods: { recipe_id: @recipe_data.id })
   end
 
-  def new; end
+  def new
+    @user_owner = current_user
+    @recipe = Recipe.new
+  end
 
-  def create; end
+  def create
+    @recipe_data = Recipe.new(recipe_params)
+    @recipe_data.user_id = current_user.id
+
+    if @recipe_data.public.nil?
+      @recipe_data.public = false
+      puts 'entro al if'
+    end
+
+    if @recipe_data.save
+      flash[:notice] = 'The recipes was created successfully!'
+    else
+      flash[:alert] = 'The recipes was not created!'
+    end
+    redirect_to recipes_path
+  end
 
   def edit; end
 
-  def update; end
+  def update_public
+    @recipe = Recipe.find(params[:id])
+    @recipe.update(public: params[:public])
+  end
 
-  def destroy; end
+  def destroy
+    @recipe_destroy = Recipe.find(params[:id])
+    if @recipe_destroy.destroy
+      flash[:notice] = 'The recipes was deleted successfully!'
+    else
+      flash[:alert] = 'The recipes was not deleted!'
+    end
+    redirect_to recipes_path
+  end
 
   def shopping_list
     @user = current_user
@@ -97,5 +128,9 @@ class RecipesController < ApplicationController
       total_price += quantity_missing * price
     end
     total_price
+  end
+
+  def recipe_params
+    params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public)
   end
 end

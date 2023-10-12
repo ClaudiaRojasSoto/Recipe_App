@@ -2,6 +2,7 @@
 @import "foodsList";
 @import "recipeIndex";
 @import "recipeShow";
+@import "recipeNew";
 @import "publicRecipe";
 @import "shoppingList";
 
@@ -260,4 +261,46 @@ tr:nth-child(even) {
   color: blue;
   text-decoration: underline;
   cursor: pointer;
+}
+
+.toggle-button {
+  position: relative;
+  width: 45px;
+  height: 25px;
+}
+
+.slider {
+  display: none;
+}
+
+.slider-label {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  border-radius: 40px;
+  transition: 0.4s;
+  overflow: hidden;
+}
+
+.circle {
+  position: absolute;
+  height: 15px;
+  width: 15px;
+  left: 5px;
+  bottom: 5px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+.slider:checked + .slider-label {
+  background-color: #18d01e;
+}
+
+.slider:checked + .slider-label .circle {
+  transform: translateX(22px);
 }

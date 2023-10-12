@@ -1,20 +1,15 @@
 require 'rails_helper'
 
-RSpec.feature 'Users', type: :feature do
-  let(:user) { create(:user) }
+RSpec.describe 'Users', type: :feature do
+  include Devise::Test::IntegrationHelpers
 
-  before do
-    # Autenticar al usuario
-    visit new_user_session_path
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-    click_button 'Log in'
-  end
+  let(:user) { create(:user) }
 
   describe 'GET /index' do
     it 'visits users#index' do
-      visit users_path
-      expect(page).to have_content('algún contenido que esperas encontrar en la página')
+      sign_in user
+      visit users_index_path
+      expect(page).to have_content 'Find me in app/views/users/index.html.erb'
     end
   end
 end

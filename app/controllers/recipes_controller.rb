@@ -6,7 +6,7 @@ class RecipesController < ApplicationController
   end
 
   def public_recipes
-    @public_recipes_data = Recipe.public_recipes
+    @public_recipes_data = Recipe.public_recipes.includes(:user, :foods)
   end
 
   def show
@@ -56,7 +56,7 @@ class RecipesController < ApplicationController
 
   def shopping_list
     @user = current_user
-    @recipes = @user.recipes || []
+    @recipes = @user.recipes.includes(recipe_foods: :food) || [] # Añadido .includes(recipe_foods: :food)
     @stock_user = calculate_user_stock
     @foods_needed = calculate_foods_needed
     @foods_needed = sort_foods_needed(@foods_needed)
@@ -96,9 +96,9 @@ class RecipesController < ApplicationController
 
   def calculate_foods_needed
     foods_needed = {}
-    @user.recipes.each do |recipe|
-      recipe.foods.each do |food|
-        recipe_food = RecipeFood.find_by(recipe_id: recipe.id, food_id: food.id)
+    @user.recipes.includes(recipe_foods: :food).each do |recipe|
+      recipe.recipe_foods.each do |recipe_food|
+        food = recipe_food.food
         next if recipe_food.quantity.blank?
 
         if foods_needed.key?(food.name)

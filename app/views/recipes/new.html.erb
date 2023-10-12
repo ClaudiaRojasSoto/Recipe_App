@@ -1,2 +1,41 @@
-<h1>Recipes#new</h1>
-<p>Find me in app/views/recipes/new.html.erb</p>
+<div class="contNewRecipe">
+<h1>New recipe</h1>
+<h2>for <%= @user_owner.name %></h2>
+
+<%= form_with(model: @recipe, url: recipes_path, method: :post) do |form| %>
+    <div class="form">    
+        <div class="form">
+            <%= form.label :name %>
+            <%= form.text_field :name %>
+        </div>
+  
+        <div class="form">
+            <%= form.label :preparation %>
+            <%= form.text_field :preparation_time %>
+        </div>
+
+        <div class="form">
+            <%= form.label :cooking %>
+            <%= form.text_field :cooking_time %>
+        </div>
+
+        <div class="form">
+            <%= form.label :description %>
+            <%= form.text_area :description %>
+        </div>
+
+        <div class="form">
+            <%= form.label :public, id: "label" %>
+            <div class="toggle-button">
+                <%= form.check_box :public, {class: 'slider', id: 'toggle'}, true, false %>
+                <label class="slider-label" for="toggle">
+                <div class="circle"></div>
+                </label>
+            </div>
+        </div>
+  
+        <div class="form">
+            <%= form.submit 'Create Post', class: "FormButton" %>
+        </div>
+    </div>
+  <% end %>

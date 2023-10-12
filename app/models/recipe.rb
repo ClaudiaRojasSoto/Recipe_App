@@ -1,7 +1,7 @@
 class Recipe < ApplicationRecord
   belongs_to :user
   has_many :recipe_foods
-  #has_and_belongs_to_many :foods, join_table: 'recipe_foods'
+  # has_and_belongs_to_many :foods, join_table: 'recipe_foods'
   has_many :foods, through: :recipe_foods
   scope :public_recipes, -> { where(public: true).order(created_at: :desc) }
 

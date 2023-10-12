@@ -22,11 +22,10 @@
         <td class="food-name"><%= food.name %></td>
         <td class="measurement-unit"><%= food.measurement_unit %></td>
         <td class="price">$<%= food.price %></td>
-
         <td class="quantity"><%= food.quantity %></td>
         <td class="actions">
             <%= button_to 'Delete', food, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button-link' %>
-          </td>
+        </td>
       </tr>
     <% end %>
   </tbody>

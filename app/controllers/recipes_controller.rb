@@ -62,7 +62,7 @@ class RecipesController < ApplicationController
     @foods_needed = sort_foods_needed(@foods_needed)
     @foods_to_buy = calculate_foods_to_buy(@foods_needed, @stock_user)
     @total_price = calculate_total_price
-  end  
+  end
 
   def sort_foods_needed(foods_needed)
     sort = params[:sort]
@@ -100,6 +100,7 @@ class RecipesController < ApplicationController
       recipe.recipe_foods.each do |recipe_food|
         food = recipe_food.food
         next if recipe_food.quantity.blank?
+
         if foods_needed.key?(food.name)
           foods_needed[food.name] += recipe_food.quantity.to_i
         else

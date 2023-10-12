@@ -4,18 +4,15 @@
     <% @recipes_data.each do |item| %>
         <div class="recipe">
             <div class="title">
-            <p> <%= link_to item.name, recipe_path(item.id)%> </p>
+            <p> <%= link_to item.name, recipe_path(item.id), class: "newRecipeName"%> </p>
             <% if(@user_owner == item.user_id) %>
-                <%= link_to "REMOVE", recipes_path, class: "removeRecipe"%>
+                <%= button_to "REMOVE", recipe_path(item.id), method: :delete %>
             <% end %>
             </div>
             <p> <%= item.description %> </p>
         </div>
     <% end %>
 
-    <% if (@userOwner == 0) %>
+    <%= link_to "Add new recipe", new_recipe_path, class: "newRecipe" %>
 
-        #<%= link_to "Add new recipe", new_recipe_path %>
-
-    <% end %>
 </div>

@@ -24,7 +24,7 @@
   margin-bottom: 15px;
 }
 
-.newRecipeName{
+.newRecipeName {
   all: initial;
   font-weight: 900;
   font-size: 30px;
@@ -32,7 +32,7 @@
 }
 
 .newRecipe {
-  all:initial;
+  all: initial;
   margin: 15px 0 30px 0;
   padding: 10px;
   cursor: pointer;

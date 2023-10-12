@@ -68,13 +68,13 @@
   display: flex;
 }
 
-.actionsShow button{
+.actionsShow button {
   all: initial;
   border-bottom: 2px solid rgb(95, 93, 93);
   cursor: pointer;
 }
 
-.actionsShow a { 
+.actionsShow a {
   all: initial;
   border-bottom: 2px solid rgb(95, 93, 93);
   cursor: pointer;

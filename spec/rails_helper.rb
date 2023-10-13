@@ -1,6 +1,9 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
 require 'factory_bot_rails'
+require 'shoulda/matchers'
+require 'faker'
+
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 # Prevent database truncation if the environment is production
@@ -36,6 +39,13 @@ RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{Rails.root}/spec/fixtures"
 
+  config.include Warden::Test::Helpers, type: :feature
+  config.before :suite do
+    Warden.test_mode!
+  end
+  config.after :each do
+    Warden.test_reset!
+  end
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
@@ -85,5 +95,36 @@ RSpec.configure do |config|
   # FactoryBot
   RSpec.configure do |rspec_config|
     rspec_config.include FactoryBot::Syntax::Methods
+  end
+end
+
+class TestConfiguration
+  @example_user = nil
+
+  def self.example_user
+    @example_user ||= create_example_user
+  end
+
+  def self.create_example_user
+    user = User.create!(
+      name: 'Ejemplo Usuario',
+      email: 'ejemplo@example.com',
+      password: 'password123',
+      confirmed_at: Time.now
+    )
+
+    create_food(user, 'Banana')
+    create_food(user, 'Apple')
+    user
+  end
+
+  def self.create_food(user, _name)
+    Food.create!(
+      name: 'Nombre del Alimento',
+      measurement_unit: 'unit',
+      price: 1,
+      quantity: 1,
+      user: user # Donde `user` representa la instancia del modelo User a la que deseas asociar la comida
+    )
   end
 end

@@ -97,3 +97,34 @@ RSpec.configure do |config|
     rspec_config.include FactoryBot::Syntax::Methods
   end
 end
+
+class TestConfiguration
+  @example_user = nil
+
+  def self.example_user
+    @example_user ||= create_example_user
+  end
+
+  def self.create_example_user
+    user = User.create!(
+      name: 'Ejemplo Usuario',
+      email: 'ejemplo@example.com',
+      password: 'password123',
+      confirmed_at: Time.now
+    )
+
+    create_food(user, 'Banana')
+    create_food(user, 'Apple')
+    user
+  end
+
+  def self.create_food(user, _name)
+    Food.create!(
+      name: 'Nombre del Alimento',
+      measurement_unit: 'unit',
+      price: 1,
+      quantity: 1,
+      user: user # Donde `user` representa la instancia del modelo User a la que deseas asociar la comida
+    )
+  end
+end

@@ -1,3 +1,4 @@
+# spec/features/recipe_spec.rb
 require 'rails_helper'
 
 RSpec.feature 'Recipes', type: :feature do

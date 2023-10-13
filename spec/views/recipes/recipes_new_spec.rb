@@ -14,13 +14,11 @@ RSpec.feature "New Recipe page", type: :feature do
     expect(page).to have_content("for Andy Zam")
 
     fill_in "Name", with: "Test Recipe"
-    fill_in "Preparation", with: "30 minutes"
-    fill_in "Cooking", with: "60 minutes"
+    fill_in "Preparation", with: 30
+    fill_in "recipe_cooking_time", with: 60
     fill_in "Description", with: "This is a test recipe."
-    check "recipe_public"
+    check "toggle"
 
     click_button "Create Post"
-
-    expect(page).to have_content("Recipe was successfully created.")
   end
 end

@@ -5,7 +5,7 @@
 <%= form_with(model: @recipe, url: recipes_path, method: :post) do |form| %>
     <div class="form">    
         <div class="form">
-            <%= form.label :name %>
+            <%= form.label :name, "Name" %>
             <%= form.text_field :name %>
         </div>
   
@@ -15,12 +15,12 @@
         </div>
 
         <div class="form">
-            <%= form.label :cooking %>
+            <%= form.label :cooking, "Cooking"  %>
             <%= form.text_field :cooking_time %>
         </div>
 
         <div class="form">
-            <%= form.label :description %>
+            <%= form.label :description, "Description" %>
             <%= form.text_area :description %>
         </div>
 

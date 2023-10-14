@@ -1,0 +1,19 @@
+<% if user_signed_in? %>
+  <nav class="navbar">
+    <div class="navbar-left">
+      <span>RecipeApp</span>
+    </div>
+    <div class="navbar-right">
+      <ul class="navbar-items">
+        <li><%= link_to "Foods", foods_path, class: "navbar-list-item" %></li>
+        <li><%= link_to "Recipes", recipes_path, class: "navbar-list-item" %></li>
+        <li><%= link_to "Public Recipes", public_recipes_recipes_path, class: "navbar-list-item" %></li>
+        <li><%= link_to "Shopping List", shopping_list_path, class: "navbar-list-item" %></li>
+      </ul>
+    </div>
+  </nav>
+<% else %>
+  <nav>
+
+  </nav>
+<% end %>

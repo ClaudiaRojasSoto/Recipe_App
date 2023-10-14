@@ -1,0 +1,19 @@
+<h1>Add new ingredient to recipe <%= @recipe.name %></h1>
+
+<%= form_for @new_ingredient, url: recipe_foods_path, method: :post do |f| %>
+
+    <%= f.hidden_field :recipe_id, value: @recipe.id %>
+
+    <div class="form">
+        <%= f.label :food_id %>
+        <%= f.select :food_id, options_for_select(@ingredients.map { |p| [p.name, p.id] }), include_blank: 'Choose an ingredient' %>
+    </div>
+    
+    <div class="form">
+        <%= f.label :quantity %>
+        <%= f.text_field :quantity %>
+    </div>
+
+    <%= f.submit "Guardar" %>
+
+<% end %>

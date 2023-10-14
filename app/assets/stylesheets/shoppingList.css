@@ -1,0 +1,122 @@
+.info-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.info-item1 {
+  margin-right: 110px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.info-item2 {
+  margin-left: 110px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.triangle-up2::before,
+.triangle-down2::before {
+  display: block;
+  color: #000;
+}
+
+.triangle-up2::before {
+  content: '▲';
+}
+
+.triangle-down2::before {
+  content: '▼';
+}
+
+.header-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.sorting-arrows {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 5px;
+}
+
+table {
+  width: 80%;
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+th {
+  background-color: #f2f2f2;
+  color: #333;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.food-name {
+  width: 20%;
+}
+
+.measurement-unit {
+  width: 10%;
+}
+
+.price {
+  width: 10%;
+}
+
+.quantity {
+  width: 10%;
+}
+
+.add-food-button {
+  display: block;
+  width: 200px;
+  height: 40px;
+  line-height: 40px;
+  margin: 20px auto;
+  text-align: center;
+  background-color: #f2f2f2;
+  color: #000;
+  text-decoration: none;
+  border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.add-food-button:hover {
+  background-color: black;
+}
+
+.food-container {
+  padding: 0;
+}
+
+.food-container .add-food-button {
+  float: right;
+  width: calc(20% - 20px);
+  margin-right: 7%;
+}
+
+.triangle-up {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 10px solid black;
+  display: inline-block;
+}

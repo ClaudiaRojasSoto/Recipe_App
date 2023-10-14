@@ -1,0 +1,20 @@
+<h1 class="index-title">Add New Food</h1>
+
+<%= form_with(model: @food, local: true) do |form| %>
+
+  <div class="field">
+    <%= form.text_field :name, placeholder: "Food Name", autocomplete: "name", class: 'input-with-label' %>
+  </div>
+  <div class="field">
+    <%= form.select :measurement_unit, options_for_select(['g', 'ml', 'unit']), {}, { class: 'input-with-label' } %>
+  </div>
+  <div class="field">
+    <%= form.text_field :price, placeholder: "Price", class: 'input-with-label', step: 'any' %>
+  </div>
+  <div class="field">
+    <%= form.text_field :quantity, placeholder: "Quantity", class: 'input-with-label', step: 'any' %>
+  </div>
+  <div class="actions">
+    <%= form.submit "Add Food", class: 'post-form-button' %>
+  </div>
+<% end %>

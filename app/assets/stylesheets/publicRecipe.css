@@ -1,0 +1,54 @@
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0;
+}
+
+.inner-padding {
+  padding: 0 30px;
+}
+
+.header-public-recipe-list {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.recipe-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.recipe-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #ccc; /* Añadido de nuevo el border */
+  padding: 20px;
+  margin: 10px 0;
+}
+
+.recipe-info {
+  text-align: left;
+  padding-left: 20px; /* margen izquierdo */
+}
+
+.recipe-title {
+  font-size: 18px;
+  margin: 0;
+}
+
+.recipe-author {
+  font-size: 14px;
+  color: #555;
+}
+
+.recipe-details {
+  text-align: right;
+  padding-right: 30px; /* Añadido padding derecho */
+}
+
+.recipe-total-food-items,
+.recipe-total-price {
+  margin: 0;
+}

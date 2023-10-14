@@ -1,0 +1,306 @@
+@import "navbar";
+@import "foodsList";
+@import "recipeIndex";
+@import "recipeShow";
+@import "recipeNew";
+@import "publicRecipe";
+@import "shoppingList";
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.center {
+  text-align: center;
+}
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
+
+.index-title {
+  padding: 15px;
+  margin: 15px 0;
+}
+
+.user-card {
+  padding: 10px;
+  margin: 10px 0;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+
+.flex {
+  display: flex;
+}
+
+.user-image {
+  max-width: 120px;
+  margin: 10px;
+  flex: 20%;
+}
+
+.user-info {
+  padding: 10px;
+  text-align: left;
+  margin: 10px;
+  flex: 80%;
+}
+
+.border {
+  border: 1px solid rgb(0, 0, 0);
+}
+
+.posts-number {
+  padding: 10px;
+  text-align: right;
+}
+
+.span-post {
+  font-size: 12px;
+}
+
+.button {
+  border: 0;
+  border-radius: 0.2rem;
+  background: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  padding: 0.25rem;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: rgb(2, 2, 2);
+}
+
+.pagination .page {
+  color: black;
+  text-decoration: none;
+}
+
+.post-form,
+.comment-form {
+  background-color: #f8f8f8;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.post-form label,
+.comment-form label {
+  font-weight: bold;
+}
+
+.post-form textarea,
+.comment-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: vertical;
+}
+
+.post-form .button,
+.comment-form .button {
+  background-color: black;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.post-form .button:hover,
+.comment-form .button:hover {
+  background-color: #0056b3;
+}
+
+.top {
+  margin-top: 10px;
+}
+
+.label-fixed-width {
+  width: 123px;
+  display: inline-block;
+}
+
+.flex-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.label-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.password-notice {
+  font-size: smaller;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.input-with-label {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.post-form-button {
+  width: 100%;
+  height: 35px;
+  margin-top: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+table {
+  width: 80%;
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+th {
+  background-color: #f2f2f2;
+  color: #333;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.food-name {
+  width: 20%;
+}
+
+.measurement-unit {
+  width: 10%;
+}
+
+.price {
+  width: 10%;
+}
+
+.quantity {
+  width: 10%;
+}
+
+.add-food-button {
+  display: block;
+  width: 200px;
+  height: 40px;
+  line-height: 40px;
+  margin: 20px auto;
+  text-align: center;
+  background-color: #f2f2f2;
+  color: #000;
+  text-decoration: none;
+  border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.add-food-button:hover {
+  background-color: black;
+}
+
+.food-container {
+  padding: 0;
+}
+
+.food-container .add-food-button {
+  float: right;
+  width: calc(20% - 20px);
+  margin-right: 7%;
+}
+
+.triangle-up {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 10px solid black;
+  display: inline-block;
+}
+
+.button-link {
+  background: none !important;
+  border: none;
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.toggle-button {
+  position: relative;
+  width: 45px;
+  height: 25px;
+}
+
+.slider {
+  display: none;
+}
+
+.slider-label {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  border-radius: 40px;
+  transition: 0.4s;
+  overflow: hidden;
+}
+
+.circle {
+  position: absolute;
+  height: 15px;
+  width: 15px;
+  left: 5px;
+  bottom: 5px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+.slider:checked + .slider-label {
+  background-color: #18d01e;
+}
+
+.slider:checked + .slider-label .circle {
+  transform: translateX(22px);
+}

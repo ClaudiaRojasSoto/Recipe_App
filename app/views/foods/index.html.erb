@@ -1,0 +1,33 @@
+<div class="container food-container">
+<%= link_to 'Add Food', new_food_path, class: "add-food-button" %>
+
+<table>
+  <thead>
+    <tr>
+      <th class="food-name">
+          <div class="header-container">
+            Name
+            <%= link_to '', foods_path(sort: 'name'), class: 'triangle-up' %>
+          </div>
+        </th>
+      <th class="measurement-unit">Measurement Unit</th>
+      <th class="price">Unit Price</th>
+      <th class="quantity">Quantity</th>
+      <th class="actions">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @foods.each do |food| %>
+      <tr>
+        <td class="food-name"><%= food.name %></td>
+        <td class="measurement-unit"><%= food.measurement_unit %></td>
+        <td class="price">$<%= food.price %></td>
+        <td class="quantity"><%= food.quantity %></td>
+        <td class="actions">
+            <%= button_to 'Delete', food, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button-link', id: "Delete_#{food.id}" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

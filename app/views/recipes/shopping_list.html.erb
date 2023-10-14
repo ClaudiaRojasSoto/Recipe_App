@@ -1,0 +1,49 @@
+<h2>Shopping List</h2>
+<div class="info-row">
+<h4 class="info-item2">Amount of food items to buy: <%= total_foods_to_buy(@foods_to_buy) %></h4>
+<h4 class="info-item1">Total value of food needed:  <%= @total_price %></h4>
+</div>
+<%# <%= @stock_user %> 
+<%# <%= @foods_needed %> 
+
+<table>
+<thead>
+    <tr>
+      <th class="food-name">
+        <div class="header-container">
+          <span>Food</span>
+          <div class="sorting-arrows">
+            <%= link_to '', { sort: 'food_name_asc' }, class: 'triangle-up2' %> <!-- Ascending Order -->
+            <%= link_to '', { sort: 'food_name_desc' }, class: 'triangle-down2' %> <!-- Descending Order -->
+          </div>
+        </div>
+      </th>
+      <th class="quantity">Quantity Missing</th>
+      <th class="price">
+        <div class="header-container">
+          <span>Price</span>
+          <div class="sorting-arrows">
+            <%= link_to '', { sort: 'price_asc' }, class: 'triangle-up2' %> <!-- Ascending Order -->
+            <%= link_to '', { sort: 'price_desc' }, class: 'triangle-down2' %> <!-- Descending Order -->
+          </div>
+        </div>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @foods_needed.each do |food_name, quantity_needed| %>
+      <% quantity_missing = [0, quantity_needed - (@stock_user[food_name] || 0)].max %>
+      <% next if quantity_missing == 0 %>
+      <tr>
+        <td class="food-name"><%= food_name %></td>
+        <td class="quantity"><%= quantity_missing %></td>
+        <td class="price">
+          <% food_price = Food.obtener_precio(food_name) %>
+          <% total_food_price = quantity_missing * food_price %>
+          <%= total_food_price %>
+        </td>
+      </tr>
+    <% end %>
+</tbody>
+
+</table>

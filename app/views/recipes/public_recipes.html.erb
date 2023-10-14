@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="inner-padding">
+    <h1 class="header-public-recipe-list">Public Recipes</h1>
+    <ul class="recipe-list">
+      <% @public_recipes_data.each do |recipe| %>
+        <li class="recipe-item">
+          <div class="recipe-info">
+            <div class="recipe-title"><%= link_to recipe.name, recipe_path(recipe) %></div>
+            <div class="recipe-author">by <%= recipe.user.name %></div>
+          </div>
+          <div class="recipe-details">
+            <p class="recipe-total-food-items">Total food items:<%= size_by_food(recipe) %> <!-- Itmes de comida (helper recipes) --></p>
+            <p class="recipe-total-price">Total price: <%= recipe.total_foods_price %><!-- precio total --></p>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div> 
+</div>

@@ -1,0 +1,40 @@
+.contRecipes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.contRecipes h1 {
+  font-size: 50px;
+  margin-bottom: 50px;
+}
+
+.recipe {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 90%;
+  border: 2px solid rgb(95, 93, 93);
+  margin: 5px;
+  padding: 5px;
+}
+
+.recipe p {
+  margin-bottom: 15px;
+}
+
+.newRecipeName {
+  all: initial;
+  font-weight: 900;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.newRecipe {
+  all: initial;
+  margin: 15px 0 30px 0;
+  padding: 10px;
+  cursor: pointer;
+  border: 2px solid rgb(95, 93, 93);
+}

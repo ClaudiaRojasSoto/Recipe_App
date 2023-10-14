@@ -1,0 +1,41 @@
+<div class="contNewRecipe">
+<h1>New recipe</h1>
+<h2>for <%= @user_owner.name %></h2>
+
+<%= form_with(model: @recipe, url: recipes_path, method: :post) do |form| %>
+    <div class="form">    
+        <div class="form">
+            <%= form.label :name, "Name" %>
+            <%= form.text_field :name %>
+        </div>
+  
+        <div class="form">
+            <%= form.label :preparation_time, "Preparation" %>
+            <%= form.text_field :preparation_time %>
+        </div>
+
+        <div class="form">
+            <%= form.label :cooking, "Cooking"  %>
+            <%= form.text_field :cooking_time %>
+        </div>
+
+        <div class="form">
+            <%= form.label :description, "Description" %>
+            <%= form.text_area :description %>
+        </div>
+
+        <div class="form">
+            <%= form.label :public, id: "label" %>
+            <div class="toggle-button">
+                <%= form.check_box :public, {class: 'slider', id: 'toggle'}, true, false %>
+                <label class="slider-label" for="toggle">
+                <div class="circle"></div>
+                </label>
+            </div>
+        </div>
+  
+        <div class="form">
+            <%= form.submit 'Create Post', class: "FormButton" %>
+        </div>
+    </div>
+  <% end %>
